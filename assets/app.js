@@ -1,4 +1,4 @@
-/* Transformación con IA aplicada · camino por rol.
+/* Transformación hacia la IA · camino por rol.
    Sin cookies ni peticiones externas hasta que la persona pulsa reproducir un vídeo. */
 (function () {
   'use strict';

@@ -1,4 +1,4 @@
-# Transformación con IA aplicada
+# Transformación hacia la IA
 
 **Empezar pequeño. Demostrar. Escalar.**
 
