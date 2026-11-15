@@ -33,7 +33,7 @@ jobs:
           fallos=0
           while IFS= read -r f; do
             case "$f" in
-              .gitignore|.nojekyll|LICENSE|robots.txt|.well-known/tdmrep.json|.github/workflows/*.yml) continue ;;
+              .gitignore|.nojekyll|LICENSE|README.md|robots.txt|.well-known/tdmrep.json|.github/workflows/*.yml) continue ;;
               onepagers/*.pdf) ;;
               *.html|*.css|*.js|*.jpg|*.png|*.svg|*.woff2|*.txt|*.json) ;;
               *) echo "::error file=$f::Tipo de fichero no permitido en la web pública"; fallos=$((fallos+1)); continue ;;
