@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transformación con IA aplicada</title>
+<meta name="description" content="Seis etapas para pasar de piloto a producción con IA: qué hacen otras organizaciones, qué suele funcionar y qué no. Vídeos por sector y por rol.">
+<meta property="og:title" content="Transformación con IA aplicada">
+<meta property="og:description" content="Seis etapas para pasar de piloto a producción. Empezar pequeño. Demostrar. Escalar.">
+<meta property="og:type" content="website">
+<meta name="tdm-reservation" content="1">
+<meta name="robots" content="noai, noimageai">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+<header class="top">
+  <a class="marca" href="./" aria-label="Inicio">
+    <img src="assets/logo.png" alt="" width="96" height="21">
+    <span>Transformación con IA aplicada</span>
+  </a>
+  <nav class="sectores" aria-label="Sector"></nav>
+</header>
+
+<section class="entrada" id="entrada">
+  <div class="hero">
+    <p class="overline">Empezar pequeño. Demostrar. Escalar.</p>
+    <h1>Seis etapas para pasar de piloto a producción con IA</h1>
+    <p class="intro">Ideas de lo que funciona en otras organizaciones, para que diseñes el camino de <span data-org></span>. Qué se suele hacer, por qué, y qué no conviene hacer.</p>
+    <ol class="premisas"></ol>
+  </div>
+  <div class="elige">
+    <div class="paso" data-paso="sector">
+      <h2><span>1</span> Tu sector</h2>
+      <div class="sector-grid"></div>
+    </div>
+    <div class="paso" data-paso="rol">
+      <h2><span>2</span> ¿Desde qué rol lo ves?</h2>
+      <p>El tronco es común. Desde la etapa 3, el camino se divide y cada rol sigue el de su área.</p>
+      <div class="rol-grid"></div>
+    </div>
+  </div>
+</section>
+
+<section class="ruta" id="ruta" hidden>
+  <aside class="rail"></aside>
+  <main class="cont"></main>
+</section>
+
+<footer class="pie">
+  <img src="assets/logo.png" alt="" width="82" height="18">
+  <p>Contenido divulgativo. Es una base para diseñar tu propia transformación: las decisiones son de tu organización.</p>
+  <p class="legal">© <span data-anio></span> Antonio Berbén Morales. Todos los derechos reservados, incluida la reserva expresa de minería de textos y datos (art. 4.3 de la Directiva (UE) 2019/790). · <a href="privacidad.html">Privacidad</a></p>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Vídeo" hidden>
+  <button class="cerrar" aria-label="Cerrar">×</button>
+  <div class="caja">
+    <div class="player"></div>
+    <div class="info"></div>
+  </div>
+</div>
+
+<script src="datos.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
