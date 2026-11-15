@@ -63,4 +63,6 @@ La web no usa cookies propias ni analítica. El reproductor de vídeo solo se ca
 
 ## Licencia
 
+Creado por [Antonio Berbén Morales](https://www.linkedin.com/in/antonio-berben), de Solo.io.
+
 © Antonio Berbén Morales. Todos los derechos reservados, incluida la reserva expresa de minería de textos y datos (art. 4.3 de la Directiva (UE) 2019/790). Condiciones en [LICENSE](LICENSE).

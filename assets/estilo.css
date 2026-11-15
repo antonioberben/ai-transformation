@@ -20,7 +20,7 @@ a { color: var(--purple); }
 /* Cabecera */
 header.top { position: sticky; top: 0; z-index: 100; height: var(--top); background: rgba(21, 25, 39, .96); backdrop-filter: blur(8px); display: flex; align-items: center; gap: 24px; padding: 0 28px; color: #fff; }
 .marca { display: flex; align-items: center; gap: 14px; color: #fff; text-decoration: none; flex: none; }
-.marca img { filter: brightness(0) invert(1); height: 21px; width: auto; }
+.marca img { height: 30px; width: 30px; display: block; }
 .marca span { font-weight: 600; font-size: 15px; padding-left: 14px; border-left: 1px solid rgba(255, 255, 255, .25); }
 .sectores { margin-left: auto; display: flex; gap: 6px; }
 .sectores button { border: 1px solid rgba(255, 255, 255, .22); background: transparent; color: #DDDFED; border-radius: 999px; padding: 6px 14px; font-size: 14px; white-space: nowrap; }
@@ -161,7 +161,8 @@ header.top { position: sticky; top: 0; z-index: 100; height: var(--top); backgro
 /* Pie */
 .pie { background: var(--dark); color: #9DA1BD; padding: 34px 28px; font-size: 13px; }
 .pie > * { max-width: 1240px; margin-left: auto; margin-right: auto; }
-.pie img { filter: brightness(0) invert(1); opacity: .9; display: block; margin-bottom: 14px; }
+.pie-marca { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 600; margin-bottom: 14px; }
+.pie-marca img { display: block; }
 .pie p { margin: 0 auto 6px; }
 .pie .legal { font-size: 12px; color: #5C6178; }
 .pie a { color: #B5B8CD; }
