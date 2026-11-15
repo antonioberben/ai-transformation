@@ -1,0 +1,50 @@
+# Repositorio de la web pública: solo HTML, CSS, JS, imágenes y fuentes.
+# Lo genera website/generar.py; no editar a mano.
+
+# Sistema y editores
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+
+# Secretos: nunca en este repositorio
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+id_rsa*
+id_ed25519*
+*.token
+.npmrc
+.netrc
+*credential*
+*secret*
+*password*
+
+# Fuera de la web: los vídeos van a Vimeo; el trabajo interno se queda en el proyecto
+*.mp4
+*.mov
+*.m4a
+*.wav
+*.zip
+*.md
+*.py
+*.sh
+*.log
+*.tsv
+*.yml
+*.yaml
+!.github/workflows/*.yml
+vimeo.json
+subida-vimeo/
+node_modules/
+
+# PDF: solo los one-pagers públicos, en onepagers/
+*.pdf
+!onepagers/*.pdf

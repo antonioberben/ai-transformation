@@ -1,0 +1,47 @@
+# Revisa cada cambio de la web pública. No construye nada: la web se genera fuera y aquí solo se comprueba.
+name: Comprobar contenido
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  secretos:
+    name: Sin secretos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@e0c47f4f8be36e29cdc102c57e68cb5cbf0e8d1e # v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_ENABLE_COMMENTS: "false"
+
+  ficheros:
+    name: Solo ficheros de la web
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Tipos, tamaños y rutas permitidos
+        run: |
+          fallos=0
+          while IFS= read -r f; do
+            case "$f" in
+              .gitignore|.nojekyll|LICENSE|robots.txt|.well-known/tdmrep.json|.github/workflows/*.yml) continue ;;
+              onepagers/*.pdf) ;;
+              *.html|*.css|*.js|*.jpg|*.png|*.svg|*.woff2|*.txt|*.json) ;;
+              *) echo "::error file=$f::Tipo de fichero no permitido en la web pública"; fallos=$((fallos+1)); continue ;;
+            esac
+            tam=$(stat -c %s "$f")
+            if [ "$tam" -gt 2000000 ]; then
+              echo "::error file=$f::Fichero de más de 2 MB ($tam bytes); los vídeos van a Vimeo"; fallos=$((fallos+1))
+            fi
+          done < <(git ls-files)
+          echo "Ficheros revisados: $(git ls-files | wc -l). Fallos: $fallos."
+          [ "$fallos" -eq 0 ]
