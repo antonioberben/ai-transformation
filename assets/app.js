@@ -180,7 +180,7 @@
     const player = $('.player', modal);
     const cargar = () => {
       vistos.add(sector + '/' + slug); LS.set('ia-vistos', [...vistos]);
-      const src = 'https://player.vimeo.com/video/' + encodeURIComponent(v.vimeo) + '?autoplay=1&title=0&byline=0&portrait=0&texttrack=es' + (v.h ? '&h=' + encodeURIComponent(v.h) : '');
+      const src = 'https://player.vimeo.com/video/' + encodeURIComponent(v.vimeo) + '?autoplay=1&title=0&byline=0&portrait=0' + (v.h ? '&h=' + encodeURIComponent(v.h) : '');
       player.replaceChildren(el('iframe', { src, allow: 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media', title: v.t }));
     };
     const fondo = el('img', { src: 'img/' + sector + '/' + slug + '.jpg', alt: '' });
