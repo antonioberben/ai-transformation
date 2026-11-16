@@ -165,6 +165,28 @@ header.top { position: sticky; top: 0; z-index: 100; height: var(--top); backgro
 .pie-marca img { display: block; }
 .pie p { margin: 0 auto 6px; }
 .pie .legal { font-size: 12px; color: #5C6178; }
+.pie-cuerpo { margin-bottom: 22px; }
+.aviso { max-width: 820px; line-height: 1.55; }
+.pie .aviso p { margin: 0 0 6px; }
+.aviso-k { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #7A7F9C; }
+/* Ficha del autor: portada y barra del recorrido */
+.autor { display: grid; grid-template-columns: 48px 1fr; gap: 4px 12px; align-items: center; border-radius: 12px; padding: 14px; }
+.autor img { width: 48px; height: 48px; border-radius: 50%; display: block; }
+.autor p { margin: 0; }
+.autor-k { font: 10.5px/1 'DM Mono', monospace; letter-spacing: .06em; text-transform: uppercase; }
+.autor-n { font-size: 15px; font-weight: 700; margin-top: 4px !important; letter-spacing: -.005em; }
+.autor-r { font-size: 13px; }
+.autor-in { grid-column: 1 / -1; justify-self: start; display: inline-flex; align-items: center; gap: 7px; margin-top: 8px; padding: 6px 12px; border-radius: 6px; background: #0A66C2; color: #fff; font-size: 13px; font-weight: 600; text-decoration: none; }
+.autor-in:hover { background: #0952A0; }
+.hero .autor { margin-top: 26px; max-width: 540px; grid-template-columns: 48px 1fr auto; background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .12); }
+.hero .autor-in { grid-column: auto; margin-top: 0; }
+.hero .autor-k { color: var(--purple-l); }
+.hero .autor-n { color: #fff; white-space: nowrap; }
+.hero .autor-r { color: #9DA1BD; }
+.rail .autor { margin-top: 22px; background: var(--card); border: 1px solid var(--line); }
+.rail .autor-k { color: var(--purple); }
+.rail .autor-r { color: var(--mu); }
+@media (max-width: 900px) { .rail .autor { display: none; } .hero .autor { grid-template-columns: 48px 1fr; } .hero .autor-in { grid-column: 1 / -1; margin-top: 8px; } }
 .pie a { color: #B5B8CD; }
 
 /* Página de texto */
@@ -200,3 +222,41 @@ header.top { position: sticky; top: 0; z-index: 100; height: var(--top); backgro
   .modal .nav button { flex: 1; }
 }
 @media (prefers-reduced-motion: reduce) { *, html { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+
+/* Enlace discreto a las demostraciones, dentro de cada etapa */
+.practica-link { display: inline-block; margin-top: 18px; font-size: 13.5px; color: var(--mu); text-decoration: none; border-bottom: 1px dashed var(--line); }
+.practica-link:hover { color: var(--purple); border-bottom-color: var(--purple); }
+
+/* Página de demostraciones prácticas */
+.practica { max-width: 1040px; margin: 0 auto; padding: 36px 28px 80px; }
+.practica .volver { font-size: 14px; color: var(--purple); text-decoration: none; font-weight: 600; }
+.practica .rotulo { margin: 22px 0 6px; font: 12px/1 'DM Mono', monospace; letter-spacing: .04em; text-transform: uppercase; color: var(--purple); }
+.practica h1 { margin: 6px 0 16px; font-size: clamp(26px, 3.4vw, 36px); line-height: 1.12; letter-spacing: -.02em; }
+.aviso-demo { background: var(--card); border: 1px solid var(--line); border-left: 3px solid var(--purple); border-radius: 8px; padding: 14px 18px; color: var(--ink-2); font-size: 14.5px; line-height: 1.55; max-width: 820px; }
+.aviso-demo p { margin: 0 0 6px; }
+.aviso-demo p:last-child { margin: 0; color: var(--mu); font-size: 13.5px; }
+.filtros { display: grid; gap: 8px; margin: 24px 0 26px; }
+.filtros .f { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.filtros .f > small { width: 52px; font-size: 12px; color: var(--mu); }
+.filtros button { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 5px 12px; font-size: 13px; color: var(--ink); }
+.filtros button.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+.demos { display: grid; gap: 22px; }
+.demo { display: grid; grid-template-columns: 300px 1fr; gap: 24px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px; }
+.demo .portada { position: relative; aspect-ratio: 16/9; border: 0; border-radius: 10px; cursor: pointer; text-align: left; padding: 16px; color: #fff; background: radial-gradient(260px 160px at 85% 0%, rgba(128, 35, 195, .55), transparent 70%), var(--dark); display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; }
+.demo .portada .k { position: absolute; top: 14px; left: 16px; font: 10.5px/1 'DM Mono', monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--purple-l); }
+.demo .portada .pt { font-size: 17px; font-weight: 700; line-height: 1.2; max-width: 80%; }
+.demo .portada .play { position: absolute; right: 14px; bottom: 14px; width: 42px; height: 42px; border-radius: 50%; background: rgba(255, 255, 255, .92); }
+.demo .portada .play::after { content: ""; position: absolute; left: 17px; top: 13px; border-left: 12px solid var(--dark); border-top: 8px solid transparent; border-bottom: 8px solid transparent; }
+.demo .portada .dur { position: absolute; top: 12px; right: 14px; background: rgba(0, 0, 0, .5); font: 11px/1 'DM Mono', monospace; padding: 4px 6px; border-radius: 4px; }
+.demo .portada:hover .play { transform: scale(1.08); }
+.demo .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+.demo .tags span { font-size: 11.5px; color: var(--mu); border: 1px solid var(--line); border-radius: 4px; padding: 2px 7px; }
+.demo .tags .e { color: var(--purple); border-color: var(--purple-l); font-weight: 600; }
+.demo h2 { margin: 8px 0 4px; font-size: 21px; letter-spacing: -.01em; }
+.demo .preg { margin: 0 0 8px; font-style: italic; color: var(--ink-2); }
+.demo p { margin: 0 0 8px; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+.demo ul { margin: 0 0 8px; padding-left: 18px; font-size: 14px; line-height: 1.5; }
+.demo .roles { font-size: 13px; color: var(--mu); margin: 0; }
+.vacio { color: var(--mu); }
+.modal .player video { width: 100%; height: 100%; display: block; background: #000; }
+@media (max-width: 760px) { .demo { grid-template-columns: 1fr; } .practica { padding: 24px 16px 60px; } }

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Demostraciones prácticas · Transformación hacia la IA</title>
+<meta name="description" content="Demostraciones de una forma posible de llevar a la práctica algunas ideas de la serie Transformación hacia la IA.">
+<meta name="tdm-reservation" content="1">
+<meta name="robots" content="noai, noimageai">
+<link rel="icon" href="assets/logos/rama-color-fondo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/estilo.css">
+</head>
+<body>
+<header class="top">
+  <a class="marca" href="./" aria-label="Inicio">
+    <img src="assets/logos/rama-blanco.svg" alt="" width="30" height="30">
+    <span>Transformación hacia la IA</span>
+  </a>
+</header>
+
+<main class="practica">
+  <a class="volver" href="./">← Volver a la serie</a>
+  <p class="rotulo">Demostración práctica · una implementación posible</p>
+  <h1>Cómo se ven algunas ideas de la serie en funcionamiento</h1>
+  <div class="aviso-demo">
+    <p>Esto no forma parte de la serie. Son demostraciones de una forma posible de llevar a la práctica algunas de sus ideas, con herramientas concretas; hay otras. No son una recomendación: las ideas de la serie valen con cualquier implementación, y la elección es de tu organización.</p>
+    <p>En los vídeos aparecen herramientas y nombres de producto reales. La organización y las personas de los vídeos son ficticias.</p>
+  </div>
+  <div class="filtros">
+    <div class="f" data-f="etapa"><small>Etapa</small></div>
+    <div class="f" data-f="rol"><small>Rol</small></div>
+  </div>
+  <div class="demos"></div>
+</main>
+
+<footer class="pie">
+  <div class="pie-marca"><img src="assets/logos/rama-blanco.svg" alt="" width="22" height="22">Transformación hacia la IA</div>
+  <p class="legal">© <span data-anio></span> Antonio Berbén Morales. Todos los derechos reservados, incluida la reserva expresa de minería de textos y datos (art. 4.3 de la Directiva (UE) 2019/790). · <a href="privacidad.html">Privacidad</a></p>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Vídeo" hidden>
+  <button class="cerrar" aria-label="Cerrar">×</button>
+  <div class="caja">
+    <div class="player"></div>
+    <div class="info"></div>
+  </div>
+</div>
+
+<script src="datos.js"></script>
+<script src="assets/practica.js"></script>
+</body>
+</html>

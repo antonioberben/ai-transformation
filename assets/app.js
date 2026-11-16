@@ -17,6 +17,7 @@
     for (const k of kids.flat()) if (k !== null && k !== undefined && k !== false) e.append(k.nodeType ? k : document.createTextNode(k));
     return e;
   }
+  const autor = () => $('#autor-tpl').content.cloneNode(true);
   const mmss = s => Math.floor(s / 60) + ':' + String(Math.round(s % 60)).padStart(2, '0');
   const minutos = s => Math.round(s / 60) + ' min';
 
@@ -53,6 +54,7 @@
   /* Entrada */
   function pintarEntrada() {
     $('.premisas').replaceChildren(...D.premisas.map((p, i) => el('li', {}, el('span', { class: 'n' }, String(i + 1).padStart(2, '0')), el('div', {}, el('b', {}, p.t), el('small', {}, p.d)))));
+    $('.autor-hueco').replaceChildren(autor());
     $('.sector-grid').replaceChildren(...D.sectores.map(s => el('button', { class: s.id === sector ? 'on' : '', on: { click: () => ponerSector(s.id) } }, s.n)));
     $('[data-paso="rol"]').classList.toggle('apagado', !sector);
     $('.rol-grid').replaceChildren(
@@ -105,12 +107,15 @@
         }
         return li;
       })));
+    $('.rail').append(autor());
 
     const caps = D.tronco.map(n => {
       const cap = el('section', { class: 'cap', id: 'cap-' + n.id }, el('div', { class: 'k' }, n.k), el('h2', {}, n.t));
       if (n.rama === 3) cap.append(divide(a));
       cap.append(el('p', { class: 'por' }, n.por));
       cap.append(el('div', { class: 'grid' }, n.videos.map(s => miniatura(s, lista)), n.videos.length ? null : el('div', { class: 'sinvideo' }, n.sin)));
+      if ((D.demos || []).some(d => d.etapa === n.id || (d.tambien || []).includes(n.id)))
+        cap.append(el('a', { class: 'practica-link', href: 'practica.html?etapa=' + n.id }, 'Ver una implementación práctica de esta etapa →'));
       if (n.rama) {
         if (a) {
           const s = n.rama === 3 ? a.v3 : a.v6;

@@ -28,6 +28,7 @@
     <h1>Seis etapas para pasar de piloto a producción con IA</h1>
     <p class="intro">Ideas de lo que funciona en otras organizaciones, para que diseñes el camino de <span data-org></span>. Qué se suele hacer, por qué, y qué no conviene hacer.</p>
     <ol class="premisas"></ol>
+    <div class="autor-hueco"></div>
   </div>
   <div class="elige">
     <div class="paso" data-paso="sector">
@@ -49,9 +50,14 @@
 
 <footer class="pie">
   <div class="pie-marca"><img src="assets/logos/rama-blanco.svg" alt="" width="22" height="22">Transformación hacia la IA</div>
-  <p>Contenido divulgativo. Es una base para diseñar tu propia transformación: las decisiones son de tu organización.</p>
-  <p>Creado por <a href="https://www.linkedin.com/in/antonio-berben" rel="noopener">Antonio Berbén Morales</a>, de Solo.io.</p>
-  <p class="legal">© <span data-anio></span> Antonio Berbén Morales. Todos los derechos reservados, incluida la reserva expresa de minería de textos y datos (art. 4.3 de la Directiva (UE) 2019/790). · <a href="privacidad.html">Privacidad</a></p>
+  <div class="pie-cuerpo">
+    <div class="aviso">
+      <p class="aviso-k">Aviso</p>
+      <p>Este sitio recoge la opinión personal de su autor y no representa la posición oficial de Solo.io. Su contenido se basa en el conocimiento adquirido en relaciones profesionales y en fuentes públicas, citadas en cada vídeo.</p>
+      <p>Es contenido divulgativo: una base para diseñar tu propia transformación. Las decisiones son de tu organización.</p>
+    </div>
+  </div>
+  <p class="legal">© <span data-anio></span> Antonio Berbén Morales. Todos los derechos reservados, incluida la reserva expresa de minería de textos y datos (art. 4.3 de la Directiva (UE) 2019/790). · <a href="practica.html">Demostraciones prácticas</a> · <a href="privacidad.html">Privacidad</a></p>
 </footer>
 
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Vídeo" hidden>
@@ -62,6 +68,17 @@
   </div>
 </div>
 
+<template id="autor-tpl">
+  <div class="autor">
+    <img src="assets/autor.jpg" alt="" width="48" height="48">
+    <div class="autor-txt">
+      <p class="autor-k">Autor</p>
+      <p class="autor-n">Antonio Berbén Morales</p>
+      <p class="autor-r">Especialista en Agentic AI</p>
+    </div>
+    <a class="autor-in" href="https://www.linkedin.com/in/antonio-berben" rel="noopener" target="_blank"><svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>Conectar en LinkedIn</a>
+  </div>
+</template>
 <script src="datos.js"></script>
 <script src="assets/app.js"></script>
 </body>
