@@ -107,6 +107,8 @@
         }
         return li;
       })));
+    if (((D.onepagers || {})[sector] || []).length)
+      $('.rail').append(el('a', { class: 'rail-res', href: 'resumenes.html?s=' + sector }, el('b', {}, 'Resúmenes de cada etapa'), el('span', {}, 'Un PDF de una cara por etapa, para compartir')));
     $('.rail').append(autor());
 
     const caps = D.tronco.map(n => {
@@ -114,6 +116,9 @@
       if (n.rama === 3) cap.append(divide(a));
       cap.append(el('p', { class: 'por' }, n.por));
       cap.append(el('div', { class: 'grid' }, n.videos.map(s => miniatura(s, lista)), n.videos.length ? null : el('div', { class: 'sinvideo' }, n.sin)));
+      const ops = ((D.onepagers || {})[sector] || []).filter(o => o.cap === n.id);
+      if (ops.length) cap.append(el('div', { class: 'op-fila' }, ops.map(o => el('button', { class: 'op-btn', on: { click: () => abrirDoc(o) } },
+        el('span', { class: 'ico', 'aria-hidden': 'true' }), el('span', {}, el('b', {}, 'One-pager'), ' · ' + o.t)))));
       if ((D.demos || []).some(d => d.etapa === n.id || (d.tambien || []).includes(n.id)))
         cap.append(el('a', { class: 'practica-link', href: 'practica.html?etapa=' + n.id }, 'Ver una implementación práctica de esta etapa →'));
       if (n.rama) {
@@ -149,6 +154,8 @@
     }
     const m = location.hash.match(/^#v=([\w-]+)$/);
     if (m && D.videos[m[1]]) abrir(m[1], lista);
+    const c = location.hash.match(/^#cap-([\w-]+)$/);
+    if (c) requestAnimationFrame(() => irA(c[1]));
   }
 
   function divide(a) {
@@ -205,8 +212,22 @@
         idx > 0 ? el('button', { on: { click: () => { idx--; pintarVideo(); } } }, '← Anterior') : null,
         sig ? el('button', { class: 'pri', title: vid(sig).t, on: { click: () => { idx++; pintarVideo(); } } }, 'Siguiente en tu camino →') : el('button', { on: { click: cerrar } }, 'Volver al camino')));
   }
+  /* One-pager: vista previa en la misma ventana, con descarga del PDF */
+  function abrirDoc(o) {
+    ultimoFoco = document.activeElement;
+    modal.hidden = false; modal.classList.add('doc'); document.body.style.overflow = 'hidden';
+    const base = 'onepagers/' + sector + '/' + o.id;
+    $('.player', modal).replaceChildren(el('img', { src: base + '.jpg', alt: 'Vista previa del one-pager: ' + o.k + ' · ' + o.t }));
+    $('.info', modal).replaceChildren(
+      el('div', {}, el('div', { class: 'k' }, ('One-pager · ' + o.k + ' · ' + sec().n).toUpperCase()), el('h3', {}, o.t)),
+      el('div', { class: 'nav' },
+        el('a', { class: 'pri', href: base + '.pdf', download: 'transformacion-ia-' + sector + '-' + o.id + '.pdf' }, 'Descargar PDF'),
+        el('a', { href: base + '.pdf', target: '_blank', rel: 'noopener' }, 'Abrir')));
+    $('.cerrar', modal).focus();
+  }
   function cerrar() {
     if (modal.hidden) return;
+    modal.classList.remove('doc');
     $('.player', modal).replaceChildren();
     modal.hidden = true; document.body.style.overflow = '';
     history.replaceState(null, '', location.pathname + location.search);
